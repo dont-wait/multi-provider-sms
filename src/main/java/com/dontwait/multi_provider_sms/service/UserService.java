@@ -22,16 +22,12 @@ public class UserService {
             throw new IllegalArgumentException("Password and Confirm Password do not match");
         }
 
-        if(getUserByUsername(request.getUsername()) != null) {
+        if(userRepository.existsByUsername(request.getUsername())) {
             throw new IllegalArgumentException("Username already exists");
         }
 
         if(userRepository.existsByPhone(request.getPhone())) {
             throw new IllegalArgumentException("Phone number already exists");
-        }
-
-        if(userRepository.existsByUsername(request.getUsername())) {
-            throw new IllegalArgumentException("Username already exists");
         }
 
 
