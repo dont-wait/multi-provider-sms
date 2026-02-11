@@ -30,4 +30,8 @@ public class User{
     
     @Column(length = 15)
     String phone;
+
+    @Column(name = "is_verified")
+    @Builder.Default
+    boolean isVerified = false;
 }
